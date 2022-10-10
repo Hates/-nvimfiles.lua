@@ -35,6 +35,7 @@ require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
 
   use {
@@ -67,8 +68,11 @@ require("indent_blankline").setup {
   show_current_context_start = true,
 }
 
+require'lspconfig'.solargraph.setup{}
+
 require('Comment').setup()
 require('hop').setup()
+
 require('telescope').setup()
 
 require('onedark').load()

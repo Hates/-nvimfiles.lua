@@ -1,6 +1,4 @@
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
-
+-- Clipboard
 vim.opt.clipboard = 'unnamedplus'
 
 -- Indenting
@@ -21,6 +19,7 @@ vim.opt.numberwidth = 2
 vim.opt.ruler = false
 
 -- disable some builtin vim plugins
+-- taken from NvChad
 local default_plugins = {
   "2html_plugin",
   "getscript",
@@ -54,3 +53,5 @@ for _, plugin in pairs(default_plugins) do
   vim.g["loaded_" .. plugin] = 1
 end
 
+-- vim.g.loaded = 1
+-- vim.g.loaded_netrwPlugin = 1
