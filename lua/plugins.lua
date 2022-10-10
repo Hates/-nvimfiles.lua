@@ -17,6 +17,9 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -25,22 +28,19 @@ require('packer').startup(function(use)
   }
 
   use {
-    'akinsho/bufferline.nvim', 
-    tag = "v2.*", 
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-
-  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
 
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'akinsho/bufferline.nvim', 
+    tag = "v2.*", 
+    requires = 'kyazdani42/nvim-web-devicons'
   }
 
   use 'numToStr/Comment.nvim'
@@ -60,19 +60,19 @@ require('packer').startup(function(use)
   end
 end)
 
+require('lspconfig').solargraph.setup {
+  -- nothing....
+}
+
 require("nvim-tree").setup()
+require('telescope').setup()
 require("bufferline").setup()
+require('Comment').setup()
+require('hop').setup()
 
 require("indent_blankline").setup {
   show_current_context = true,
   show_current_context_start = true,
 }
-
-require'lspconfig'.solargraph.setup{}
-
-require('Comment').setup()
-require('hop').setup()
-
-require('telescope').setup()
 
 require('onedark').load()
